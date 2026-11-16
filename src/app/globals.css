@@ -4,8 +4,6 @@
 :root {
   --background: #000000;
   --foreground: #efeeec;
-  --container-padding: 2em;
-  --section-padding: 4em;
 }
 
 @theme inline {
@@ -26,93 +24,115 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* ---------- Parallax component ---------- */
-.parallax { position: relative; }
-
-.parallax__header {
-  z-index: 2;
+/* ---------- Parallax component (Osmo original CSS) ---------- */
+.parallax {
+  width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100svh;
-  padding: var(--section-padding) var(--container-padding);
+  overflow: hidden;
 }
 
-.parallax__visuals {
+.parallax__content {
+  padding: 10em 1em;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  display: flex;
+  position: relative;
+}
+
+.parallax__layers {
+  object-fit: cover;
+  width: 100%;
+  max-width: none;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 120%;
+  overflow: hidden;
+}
+
+.parallax__title {
+  pointer-events: auto;
+  text-align: center;
+  text-transform: none;
+  margin-top: 0;
+  margin-bottom: .1em;
+  margin-right: .075em;
+  font-family: var(--font-archivo), "PP Neue Corp Wide", sans-serif;
+  font-stretch: 125%;
+  font-size: 10em;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
 }
 
 .parallax__black-line-overflow {
   z-index: 20;
+  background-color: #000;
+  width: 100%;
+  height: 2px;
   position: absolute;
   bottom: -1px;
   left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--background);
-}
-
-.parallax__layers {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
 }
 
 .parallax__layer-img {
   pointer-events: none;
+  object-fit: cover;
+  width: 100%;
+  max-width: none;
+  height: 117.5%;
   position: absolute;
   top: -17.5%;
   left: 0;
-  width: 100%;
-  height: 117.5%;
-  max-width: none;
-  object-fit: cover;
-}
-
-.parallax__layer-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100svh;
-}
-
-.parallax__title {
-  position: relative;
-  margin: 0 0.075em 0.1em 0;
-  text-align: center;
-  font-size: 11vw;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
 }
 
 .parallax__fade {
   z-index: 30;
+  object-fit: cover;
+  background-image: linear-gradient(#0000, #000);
+  width: 100%;
+  max-width: none;
+  height: 20%;
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 20%;
-  background-image: linear-gradient(transparent, var(--background) 80%);
 }
 
-.parallax__content {
-  position: relative;
-  display: flex;
-  align-items: center;
+.parallax__header {
+  z-index: 2;
+  padding: 10em 1em;
   justify-content: center;
+  align-items: center;
   min-height: 100svh;
-  padding: var(--section-padding) var(--container-padding);
+  display: flex;
+  position: relative;
+}
+
+.parallax__visuals {
+  object-fit: cover;
+  width: 100%;
+  max-width: none;
+  height: 120%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.parallax__layer-title {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Keep the 10em title from overflowing on small screens */
+@media (max-width: 767px) {
+  .parallax__title { font-size: 4em; }
 }
 
 .osmo-icon-svg { width: 8em; position: relative; }
