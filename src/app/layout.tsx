@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Derek Helman, CFP® | Martinsburg, WV",
-  description: "Derek Paul Helman, CFP®, Financial Advisor with Edward Jones in Martinsburg, West Virginia.",
+  description: "Derek P. Helman, MBA, CFP®, Financial Advisor with Edward Jones in Martinsburg, West Virginia.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

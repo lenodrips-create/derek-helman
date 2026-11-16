@@ -5,8 +5,8 @@ import { SlideTabs } from "@/components/ui/slide-tabs";
 const SECTIONS = [
   { label: "Home", id: "top" },
   { label: "About", id: "about" },
+  { label: "Career", id: "career" },
   { label: "Services", id: "services" },
-  { label: "Credentials", id: "credentials" },
   { label: "Contact", id: "contact" },
 ];
 
