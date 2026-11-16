@@ -11,10 +11,13 @@ type Position = {
 
 type SlideTabsProps = {
   tabs?: string[];
+  /** Called with the tab label and index when a tab is clicked. */
+  onSelect?: (tab: string, index: number) => void;
 };
 
 export const SlideTabs = ({
   tabs = ["Home", "Pricing", "Features", "Docs", "Blog"],
+  onSelect,
 }: SlideTabsProps) => {
   const [position, setPosition] = useState<Position>({
     left: 0,
@@ -54,7 +57,10 @@ export const SlideTabs = ({
             tabsRef.current[i] = el;
           }}
           setPosition={setPosition}
-          onClick={() => setSelected(i)}
+          onClick={() => {
+            setSelected(i);
+            onSelect?.(tab, i);
+          }}
         >
           {tab}
         </Tab>

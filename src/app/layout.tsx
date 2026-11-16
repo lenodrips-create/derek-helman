@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Parallax Scrolling",
-  description: "GSAP + Lenis parallax demo",
+  title: "Derek Helman, CFP® | Martinsburg, WV",
+  description: "Derek Paul Helman, CFP®, Financial Advisor with Edward Jones in Martinsburg, West Virginia.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
