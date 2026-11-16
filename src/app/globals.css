@@ -60,7 +60,9 @@ html.lenis, html.lenis body { height: auto; }
   margin-right: .075em;
   font-family: var(--font-archivo), "PP Neue Corp Wide", sans-serif;
   font-stretch: 125%;
-  font-size: 10em;
+  /* Longer name than the template's "Parallax": scale with the viewport so it fits */
+  font-size: min(10em, 8.5vw);
+  white-space: nowrap;
   font-weight: 700;
   line-height: 1;
   position: relative;
@@ -128,11 +130,6 @@ html.lenis, html.lenis body { height: auto; }
   position: absolute;
   top: 0;
   left: 0;
-}
-
-/* Keep the 10em title from overflowing on small screens */
-@media (max-width: 767px) {
-  .parallax__title { font-size: 4em; }
 }
 
 .osmo-icon-svg { width: 8em; position: relative; }
