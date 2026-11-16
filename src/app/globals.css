@@ -1,8 +1,11 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #efeeec;
+  --container-padding: 2em;
+  --section-padding: 4em;
 }
 
 @theme inline {
@@ -12,15 +15,124 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Parallax component ---------- */
+.parallax { position: relative; }
+
+.parallax__header {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: var(--section-padding) var(--container-padding);
+}
+
+.parallax__visuals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+}
+
+.parallax__black-line-overflow {
+  z-index: 20;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--background);
+}
+
+.parallax__layers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.parallax__layer-img {
+  pointer-events: none;
+  position: absolute;
+  top: -17.5%;
+  left: 0;
+  width: 100%;
+  height: 117.5%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.parallax__layer-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100svh;
+}
+
+.parallax__title {
+  position: relative;
+  margin: 0 0.075em 0.1em 0;
+  text-align: center;
+  font-size: 11vw;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.parallax__fade {
+  z-index: 30;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background-image: linear-gradient(transparent, var(--background) 80%);
+}
+
+.parallax__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: var(--section-padding) var(--container-padding);
+}
+
+.osmo-icon-svg { width: 8em; position: relative; }
+
+/* ---------- Credits ---------- */
+.osmo-credits {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1em;
+  pointer-events: none;
+}
+.osmo-credits__p {
+  margin: 0;
+  font-size: 1.125em;
+  color: rgba(239, 238, 236, 0.5);
+  pointer-events: auto;
+}
+.osmo-credits__p-a { color: var(--foreground); text-decoration: underline; }
