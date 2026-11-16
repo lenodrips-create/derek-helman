@@ -31,6 +31,12 @@ html.lenis, html.lenis body { height: auto; }
   overflow: hidden;
 }
 
+/* The icon section was removed; leave room for the visuals' extra 20%
+   so the bottom fade to black isn't clipped. */
+.parallax:not(:has(.parallax__content)) {
+  padding-bottom: 20svh;
+}
+
 .parallax__content {
   padding: 10em 1em;
   justify-content: center;
